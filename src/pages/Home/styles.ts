@@ -5,6 +5,7 @@ export const HomeContainer = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto;
   form {
     display: flex;
     flex-direction: column;
@@ -98,6 +99,33 @@ export const StartCountDownButton = styled.button`
   }
 `;
 
-export const TaskInput = styled.input``;
+export const BaseInput = styled.input`
+  height: 2.5rem;
+  border-bottom: 2px solid ${({ theme }) => theme['gray-500']};
+  font-weight: bold;
+  font-size: 1.125rem;
+  flex-wrap: wrap;
+  padding: 0 0.5rem;
+  color: ${({ theme }) => theme['gray-100']};
 
-export const AmountMinutesInput = styled.input``;
+  :focus {
+    box-shadow: none;
+    border-bottom: 2px solid ${({ theme }) => theme['green-500']};
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme['gray-100']};
+  }
+`;
+
+export const TaskInput = styled(BaseInput)`
+  flex: 1;
+
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+`;
+
+export const AmountMinutesInput = styled(BaseInput)`
+  width: 4rem;
+`;
